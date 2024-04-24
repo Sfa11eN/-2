@@ -1,4 +1,4 @@
-public abstract class WheeledTransport {
+public abstract class WheeledTransport implements TransportService {
     private String modelName;
     private int wheelsCount;
 
@@ -17,5 +17,18 @@ public abstract class WheeledTransport {
 
     public void setWheelsCount(int wheelsCount) {
         this.wheelsCount = wheelsCount;
+    }
+
+    public void updateTyre() {
+        System.out.println("Меняем покрышку");
+    }
+
+    @Override
+    public void service() {
+        System.out.println("Обслуживаем " + this.modelName);
+        for (int i = 0; i < this.wheelsCount; i++) {
+            this.updateTyre();
+        }
+
     }
 }
